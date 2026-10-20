@@ -22,7 +22,9 @@ describe("Showcase", () => {
         const img = figure.querySelector("img")!;
         const src = decodeURIComponent(img.getAttribute("src") ?? "");
         expect(product.lifestyle.some((path) => src.includes(path))).toBe(true);
-        expect(img.getAttribute("alt")).toMatch(new RegExp(`^${product.name} `));
+        expect(img.getAttribute("alt")).toMatch(
+          new RegExp(`^${product.name} `),
+        );
         expect(img.getAttribute("alt")).not.toMatch(/\.png$/);
         const caption = figure.querySelector("figcaption")?.textContent ?? "";
         expect(caption.length).toBeGreaterThan(product.name.length);
