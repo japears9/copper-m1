@@ -50,9 +50,7 @@ describe("ProductQuiz", () => {
 
   it("opens from the button and walks through three questions to a match", () => {
     render(<ProductQuiz products={getProducts()} plans={getPlans()} />);
-    fireEvent.click(
-      screen.getByRole("button", { name: "Which product is right for me?" }),
-    );
+    fireEvent.click(screen.getByRole("button", { name: "Find my Copper" }));
     const dialog = screen.getByRole("dialog");
     expect(dialog).toHaveTextContent("Question 1 of 3");
     answer("In meetings or classes", /Notes and summaries/, /More than 10/);
@@ -76,9 +74,7 @@ describe("ProductQuiz", () => {
 
   it("goes back a question and starts over", () => {
     render(<ProductQuiz products={getProducts()} plans={getPlans()} />);
-    fireEvent.click(
-      screen.getByRole("button", { name: "Which product is right for me?" }),
-    );
+    fireEvent.click(screen.getByRole("button", { name: "Find my Copper" }));
     answer("At home");
     expect(screen.getByRole("dialog")).toHaveTextContent("Question 2 of 3");
     answer("Back");
