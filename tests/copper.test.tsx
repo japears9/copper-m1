@@ -25,6 +25,28 @@ describe("Brand components", () => {
     ).toBeInTheDocument();
   });
 
+  it("SiteHeader links to the products, Copper Plus and privacy sections", () => {
+    render(<SiteHeader />);
+    const nav = screen.getByRole("navigation", { name: "Main" });
+    expect(nav.closest('[data-testid="site-header"]')).not.toBeNull();
+    for (const [name, href] of [
+      ["Products", "#products"],
+      ["Copper Plus", "#plus"],
+      ["Privacy", "#privacy"],
+    ]) {
+      expect(screen.getByRole("link", { name })).toHaveAttribute("href", href);
+    }
+  });
+
+  it("SiteFooter is the site-footer with the logo", () => {
+    render(<SiteFooter />);
+    const footer = screen.getByRole("contentinfo");
+    expect(footer).toHaveAttribute("data-testid", "site-footer");
+    expect(screen.getAllByAltText("Copper State Labs").length).toBeGreaterThan(
+      0,
+    );
+  });
+
   it("SiteFooter shows the fictional-use label", () => {
     render(<SiteFooter />);
     expect(screen.getByRole("contentinfo")).toHaveTextContent(

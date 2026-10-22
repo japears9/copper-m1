@@ -8,7 +8,7 @@ export function PrivacySummary() {
     <section
       id="privacy"
       data-testid="privacy-summary"
-      className="bg-accent/10 scroll-mt-4"
+      className="bg-accent/10"
     >
       <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
         <h2 className="font-heading text-3xl font-bold sm:text-4xl">

@@ -138,6 +138,14 @@
   }
   html {
     @apply font-sans;
+    /* Keeps the sticky header from covering a section after a #link jump. */
+    scroll-padding-top: 6rem;
+    @variant sm {
+      scroll-padding-top: 4.5rem;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
   }
   h1,
   h2,

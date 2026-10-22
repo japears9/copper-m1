@@ -22,7 +22,7 @@ export function Products() {
   const products = getProducts();
 
   return (
-    <section id="products" data-testid="products" className="scroll-mt-4">
+    <section id="products" data-testid="products">
       <div className="mx-auto max-w-5xl px-4 py-16 md:py-24">
         <h2 className="font-heading text-3xl font-bold sm:text-4xl">
           Meet the products
